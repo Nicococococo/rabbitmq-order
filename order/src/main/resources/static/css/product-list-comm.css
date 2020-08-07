@@ -1,0 +1,50 @@
+.product-list-item {
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.product-number {
+	position: absolute;
+	top: 0;
+	left: 1rem;
+	z-index: 3;
+	text-transform: uppercase;
+}
+.product-img{
+	width: 100%;
+}
+.product-link {
+	position: absolute;
+	left: 1rem;
+	bottom: 0px;
+	z-index: 3;
+	opacity: 0;
+	transition: opacity 0.5s linear;
+}
+
+/* 定义产品文件链接的尺寸 */
+.product-link-size {
+	font-size: 0.6rem;
+}
+
+.product-link-size>i {
+	font-size: 1.4rem;
+}
+
+.product-list-item:hover>.product-link {
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+.product-list-item:hover .product-img{
+	transform: scale(1.1);
+	transition: transform 0.5s;
+}
+.product-link-size:hover{
+	text-decoration: none;
+}
+.product-more{
+	font-size:0.8rem;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	cursor: pointer;
+}

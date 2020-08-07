@@ -1,0 +1,113 @@
+/* WenQingWu 2020-04-28 */
+/* 配件选择容器 */
+.switch-box{
+	width: 100%;
+	min-height: 500px;
+	margin-top: 100px;
+}
+/*  风格、镜片、金属、镜架 */
+.mountings-item{
+	position: relative;
+}
+/* 风格、镜片、金属、镜架 配合名布局 */
+.mountings-name{
+	display: flex;
+	height: 30px;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+/* 默认的配件结果 */
+.mountings-default{
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+/* 各类默认选择的图片\div： 大小样式 ,背景色直接使用Bootstrap的bg-* */
+.width-40{
+	width: 40%;
+	height: 40px;
+	/* max-width: 40%;
+	max-height:40px; */
+}
+/* 定制款文本大小 */
+.mountings-item{
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+/* 点后后，弹出框，显示可选择的配件 */
+.mountings-check-list{
+  	position: absolute;
+	top: 29px;
+	left:0px;
+	z-index: 99;
+	background-color: #f8f9fa;
+	padding: 20px;
+	width: 150%;	
+	display: none;
+}
+/* 超过2个可选的配件 */
+.width-max{
+	width: 225%;
+}
+/* 风格、镜片、金属、镜架这个小栏目文本高度 */
+.mountings-check-list-title{
+	line-height: 30px;
+}
+/* 点击后，弹出的可选配件盒子 */
+.mountings-check-list-content{
+	justify-content: center;
+	padding-top:20px;
+}
+/* 每个配件小容器 */
+.mountings-check-list-item{
+	width: 150px;
+	height:150px;
+	float: left;
+	border: 1px solid #f8f9fa;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	cursor: pointer;
+}
+.mountings-check-list-item:hover{
+	border: 1px solid #6c757d;
+}
+
+/* 可选配件中，DIV做纯色配件 */
+.mountings-check-list-item-div{
+	width: 120px;
+	height: 120px;
+}
+/*  */
+.btn-width-200{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+/* 定制步骤说明 */
+.setup{
+	/* height: 100px; */
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;	
+}
+.setup-f-size{
+	font-size: 0.7rem;
+	justify-content: space-around;
+}
+
+/* 可选择的镜片 */
+.customize-des{
+	line-height: 60px;
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 40px;
+}
+.customize-classic-des{
+	font-size: 0.6rem;
+	margin-bottom: 40px;
+}

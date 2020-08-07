@@ -1,0 +1,25 @@
+.mb-200{
+	margin-bottom: 180px;
+}
+.mt-80{
+	margin-top: 80px;
+}
+.indicators-pos{
+	position: absolute;
+	left: 0;
+	bottom:-200px;
+	height:200px;
+	width:100%;
+	margin: 0;
+	padding: 0;
+}
+.indicators-pos >li{
+	width:25%;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	border-top: 5px solid white;
+}
+.indicators-pos >li >img{
+	width: 100%;
+}

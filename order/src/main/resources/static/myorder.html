@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<title>个人中心 订单管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="../comm/bootstrap-4.4.1-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="../comm/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/footer.css">
+		<style>
+			a:hover{
+				text-decoration: none;
+			}
+			a:focus,a:active{
+				outline: 0;
+			}
+			
+			/* 订单图片大小 */
+			.money-icon{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				text-align: center;
+				line-height: 20px;
+				background-color: orange;
+				color: white;
+				font-size: 0.7rem;
+				font-style: normal;
+			}
+			.zhifu-img{
+				height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div class="container-fluid mt-5 pt-5">
+			<div class="row">
+				<div class="col-lg-2 position-fixed text-center overflow-auto" style="height: 570px;">
+					<div>
+						<img class="img-thumbnail" src="/img/mps.jpg" alt="">
+					</div>
+					<p class="h6 mt-3"><span>喵帕斯！</span>你好</p>
+				</div>
+				<div class="col-lg-10 offset-2 border-left">
+					<!-- 我的订单 -->
+					<div class="row">
+						<div class="col-lg-12">
+							<a name="myorder"></a>
+							<p class="h6 mt-3 pb-2 border-bottom" style="padding-top: 100px;">我的订单</p>
+						</div>
+						<div class="col-lg-12 ">
+							<div class="row">
+								<div class="col-lg-4">
+									<strong>商品</strong>
+								</div>
+								<div class="col-lg-1">
+									<strong>颜色</strong>
+								</div>
+								<div class="col-lg-1">
+									<strong>价格</strong>
+								</div>
+								<div class="col-lg-1">
+									<strong>数量</strong>
+								</div>
+								<div class="col-lg-1">
+									<strong>合计</strong>
+								</div>
+								<div class="col-lg-1">
+									<strong>状态</strong>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12"  style="height: 580px;" id="div_order">
+							<!--<div class="bg-light p-3 ">
+								<strong>2018/5/8</strong>
+								<span class="ml-5">订单号：</span>
+								<span>7009</span>
+							</div>
+							<div class="row border border-top-0 align-items-center ml-0 mr-0">
+								<div class="col-lg-4">
+									<span>J6673</span>
+									<img src="../img/mdnl/B6791/B6791blue.jpg" height="80" alt="">
+									<span>摩登女郎</span>
+								</div>
+								<div class="col-lg-1">
+									黑色
+								</div>
+								<div class="col-lg-1">
+									<i class="fa fa-rmb">1300</i>
+								</div>
+								<div class="col-lg-1">
+									1
+								</div>
+								<div class="col-lg-1">
+									<i class="fa fa-rmb">1300</i>
+								</div>
+								<div class="col-lg-3">
+									<span>待付款</span>
+								</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="../js/jquery.js"></script>
+		<script src="../comm/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+		<script src="../js/header.js" type="text/javascript"></script>
+		
+	</body>
+
+	<script>
+		$(function () {
+			queryAll();
+		})
+
+		function queryAll() {
+			$.ajax({
+				url: 'http://localhost:8080/orderList',
+				type: 'POST',
+				contentType: 'application/json;charset=utf-8',
+				dataType: 'json',
+				success: function (data) {
+					var tbodyHtml = "";
+					for (var i = 0;i<data.length;i++){
+
+						var status = "";
+						if(data[i].status == 0){
+							status = "未支付";
+						}else if(data[i].status == 1){
+							status = "已支付";
+						}else if(data[i].status == 2){
+							status = "订单超时取消";
+						}
+
+						tbodyHtml +='<div class="bg-light p-3 ">'
+								+'<strong>2018/5/8</strong>'
+								+'<span class="ml-5">订单号：</span>'
+								+'<span>'+data[i].id+'</span>'
+								+'</div>'
+								+'<div class="row border border-top-0 align-items-center ml-0 mr-0">'
+								+'<div class="col-lg-4">'
+								+'<span>J6673</span>'
+								+'<img src="../img/mdnl/B6791/B6791blue.jpg" height="80" alt="">'
+								+'<span>摩登女郎</span>'
+								+'</div>'
+								+'<div class="col-lg-1">黑色</div>'
+								+'<div class="col-lg-1">'
+								+'<i class="fa fa-rmb">1300</i>'
+								+'</div>'
+								+'<div class="col-lg-1">1</div>'
+								+'<div class="col-lg-1">'
+								+'<i class="fa fa-rmb">1300</i>'
+								+'</div>'
+								+'<div class="col-lg-3">'
+								+'<span>'+status+'</span>'
+								+'</div>'
+								+'</div>';
+					}
+					$("#div_order").html(tbodyHtml);
+				}
+			})
+		}
+	</script>
+</html>

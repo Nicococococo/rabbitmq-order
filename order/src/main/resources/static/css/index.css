@@ -1,0 +1,108 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+/* 设置每个分类的css */
+.show-case {
+	height: 100%;
+	position: relative;
+}
+/* 设置分类中IMG的大小 */
+.show-case>img {
+	width: 100%;
+	height: 100%;
+}
+/* 设置分类中，半透明层 */
+.show-case::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background-color: #000000;
+	opacity: 0.7;
+	z-index: 2;
+	transition: height 0.5s linear;
+}
+/* 设置分类中，半透明层的显示和动画 */
+.show-case:hover::before {
+	height: 100%;
+	transition: height 0.5s linear;
+}
+/* 设置分类中，文本的显示 */
+.show-case:hover .hover-msg{
+	opacity: 1;
+	transition: opacity 0.8s linear;
+}
+/* 设置分类中，文本的CSS */
+.hover-msg {
+	width: 30%;
+	min-width: 300px;
+	height: 100px;
+	color: white;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	z-index: 3;
+	opacity: 0;
+}
+/* 分类中文本的标题样式 */
+.hover-msg>h3 {
+	font-weight: 700;
+}
+/* 设置分类中 链接的样式 */
+.hover-msg>a:link {
+	margin-top: 1.5rem;
+	display: inline-block;
+	border: 2px solid white;
+	padding: 7px 40px;
+	font-size: 0.8rem;
+	color: white;
+	text-decoration: none;
+}
+
+.hover-msg>a:hover {
+	background-color: #e8e8e8;
+	color: #0d0d0d!important;
+	text-decoration: none;
+	transition: all 0.5s;
+}
+.hover-msg>a:visited{
+	color: white;
+	border: 2px solid white;
+}
+
+
+
+/* 回到顶端 */
+#goTop{
+	position: fixed;
+	right: 10px;
+	top: 48%;
+	z-index: 100;
+	/* font-size: 3rem; */
+	width:40px;
+	height: 40px;
+	border-radius: 20px;
+	/* background-color: #fff; */
+	line-height: 40px;
+	text-align: center;
+}
+#goTop > i{
+	font-size: 2.9rem;
+	line-height: 40px;
+	color: #000000;
+	opacity: 0.7;
+	cursor: pointer;
+}
+#goTop > i:hover{
+	color: white;
+	opacity: 1;
+}
